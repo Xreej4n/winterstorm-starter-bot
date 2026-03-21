@@ -1,10 +1,10 @@
-# ❄️ Minecraft Server Control Bot
+# Minecraft Server Starter Bot
 
 <br>
 
 A lightweight Discord bot that can **start, stop, and monitor a Minecraft server running on your local machine**.
 
-The bot communicates with a local control daemon that launches the server and manages the **playit.gg tunnel**, allowing friends to connect even if your network is behind NAT.
+The bot communicates with a local control daemon that launches the server and can even manages the **playit.gg tunnel**, allowing friends to connect even if your network is behind NAT.
 
 ---
 
@@ -16,7 +16,7 @@ The bot communicates with a local control daemon that launches the server and ma
 * Stop the server safely
 * Check if the server is currently running
 * Optionally, even start the **playit.gg tunnel** automatically when the server starts
-* Server runs **in the background with no visible terminal**
+* Can make the server run **in the background with no visible terminal**
 * Designed for **local-hosted Minecraft servers**
 * Simple architecture using Python sockets
 
@@ -24,7 +24,7 @@ The bot communicates with a local control daemon that launches the server and ma
 
 <br><br>
 
-# Commands
+# 🎮 Commands
 
 | Command   | Description                     |
 | --------- | ------------------------------- |
@@ -160,10 +160,11 @@ PORT=5000
 ```
 
 <br><br>
-`BOT_TOKEN`: Specify the Discord BOT's token. In the **Bot** tab. Click **"Reset Token"** (or "Copy Token"). Paste the token here<br>
-<br>`GUILD_ID`: Specify your Minecraft server's ID
-<br><br> `PORT`: Specify the port on which the bot should be communicating. Must be free and should be the same as the one set in the local daemon program
-<br><br>`HOST`: Specify the local daemon's HOSTNAME, i.e. usually the local daemon's IP
+> [!NOTE]
+> `BOT_TOKEN`: Specify the Discord BOT's token. In the **Bot** tab. Click **"Reset Token"** (or "Copy Token"). Paste the token here<br>
+> <br>`GUILD_ID`: Specify your Minecraft server's ID
+> <br><br> `PORT`: Specify the port on which the bot should be communicating. Must be free and should be the same as the one set in the local daemon program
+> <br><br>`HOST`: Specify the local daemon's HOSTNAME, i.e. usually the local daemon's IP
 
 
 ---
@@ -190,11 +191,12 @@ RCON_PASSW="Test@123"
 RCON_PORT=25575
 ```
 <br><br>
-`IS_TUNNEL`: specify true/false. Set true if using tunneling service playit.gg <br>
-<br>`SERVER_FILE`: specify the Minecraft Server JAR file path 
-<br><br> `PORT`: Specify the port on which the daemon should be listening. Must be free and should be the same as the one set in the discord bot program
-<br><br>`RCON_PASSW`: Specify the Password to the Minecraft Server's RCON console access. Must be same as the one in `server.properties`
-<br><br> `RCON_PORT`: Specify the Minecraft server's RCON port. Must be same as the one in `server.properties`
+> [!NOTE]
+> `IS_TUNNEL`: specify true/false. Set true if using tunneling service playit.gg <br>
+> <br>`SERVER_FILE`: specify the Minecraft Server JAR file path 
+> <br><br> `PORT`: Specify the port on which the daemon should be listening. Must be free and should be the same as the one set in the discord bot program
+> <br><br>`RCON_PASSW`: Specify the Password to the Minecraft Server's RCON console access. Must be same as the one in `server.properties`
+> <br><br> `RCON_PORT`: Specify the Minecraft server's RCON port. Must be same as the one in `server.properties`
 
 
 ---
@@ -226,8 +228,7 @@ Follow these steps to create your Discord bot, configure permissions, and invite
 
 ## 1. Create a Discord Application
 
-1. Go to the **Discord Developer Portal**
-   👉 https://discord.com/developers/applications
+1. Go to the **Discord Developer Portal**: https://discord.com/developers/applications
 
 2. Click **"New Application"**
 
@@ -251,10 +252,9 @@ Follow these steps to create your Discord bot, configure permissions, and invite
 2. Click **"Reset Token"** (or "Copy Token")
 3. Copy the token
 
-⚠️ **IMPORTANT:**
-
-* Never share this token publicly
-* Treat it like a password
+>[!IMPORTANT]
+> * Never share this token publicly
+> * Treat it like a password
 
 <br>
 
@@ -264,7 +264,7 @@ Still in the **Bot** tab, scroll down to **Privileged Gateway Intents**.
 
 Enable:
 
-* ✅ Message Content Intent
+* Message Content Intent
 * (Optional) Server Members Intent
 
 <br>
@@ -275,20 +275,20 @@ Go to **OAuth2 → URL Generator**
 
 ### Select Scopes:
 
-* ✅ `bot`
-* ✅ `applications.commands`
+* `bot`
+* `applications.commands`
 
 ### Select Bot Permissions:
 
 Minimum required:
 
-* ✅ Send Messages
-* ✅ Use Slash Commands
+* Send Messages
+* Use Slash Commands
 
 Recommended:
 
-* ✅ Read Message History
-* ✅ Embed Links
+* Read Message History
+* Embed Links
 
 <br>
 
@@ -318,16 +318,16 @@ https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=27
 
 
 
-<br>
+<br><br>
 
-# License
+# 📜 License
 
 MIT License
 
 ---
-<br>
+<br><br>
 
-# Author
+# ✒️ Author
 A tool by Xreej4n. <br>
 Created as a custom lightweight Minecraft server automation tool.
 
