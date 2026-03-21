@@ -5,9 +5,9 @@ from dotenv import load_dotenv
 import client
 load_dotenv()
 
-bot_token = os.environ['BOT_TOKEN']
-guild_id = os.environ['GUILD_ID']
-host = os.environ['HOST']
+bot_token = str(os.environ['BOT_TOKEN'])
+guild_id = str(os.environ['GUILD_ID'])
+host = str(os.environ['HOST'])
 port = int(os.environ['PORT'])
 
 intents = discord.Intents.default()
