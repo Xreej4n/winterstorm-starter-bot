@@ -39,7 +39,7 @@ The bot communicates with a local control daemon that launches the server and ca
 # 🚀 Running the Project
 
 > [!NOTE]
-> There are two parts to this program -- A local control daemon program and the Discord Bot program. Throughout the guide, we will be referring to them by the safe.
+> There are two parts to this program -- A local control daemon program and the Discord Bot program. Throughout the guide, we will be referring to them by the same.
 
 > [!IMPORTANT]
 > Make sure you match the PROJECT requirements [here](#-requirements)
@@ -85,7 +85,7 @@ rcon.port=<default/your_desired_port>
 > You may keep the RCON port the default or change it to a suitable free port
 
 ### 2. Create the .env file
-Follow the guide on Environment Variables setup [here](#local-control-daemon-1)
+Follow the guide on Environment Variables setup [here](#local-control-daemon)
 
 ### 3. Install the libraries
 Run the following command in your daemon directory:
@@ -116,7 +116,7 @@ This script:
 Follow the guide on creating the Discord Bot [here](#-creating--inviting-the-discord-bot)
 
 ### 2. Create the .env file
-Follow the guide on Environment Variables setup [here](#discord-bot-1)
+Follow the guide on Environment Variables setup [here](#discord-bot)
 
 ### 3. Install the libraries
 Run the following command in your bot directory:
@@ -172,8 +172,6 @@ PORT=5000
 
 ---
 ## Local Control Daemon
-
-<br><br>
 1. Create a file named `.env` in the daemon directory with the following contents:
 
 ```
