@@ -57,11 +57,11 @@ Local Control Daemon
 
 > [!IMPORTANT]
 > The control daemon **must run on the same machine as the Minecraft server**. <br>
-*Move the ` server.py ` to the Minecraft Server machine*
+*Move the ` SERVER ` folder to the Minecraft Server machine*
 
 >[!IMPORTANT]
 > The Discord bot can run on **any machine, including the control daemon's machine** <br>
-*All the rest of the files belong to the Discord Bot program*
+*Move the ` BOT  ` folder to the Discord BOT machine*
 
 <br><br>
 
@@ -120,14 +120,14 @@ Follow the guide on Environment Variables setup [here](#discord-bot)
 
 ### 3. Install the libraries
 Run the following command in your bot directory:
-` pip install -r requirements-client.txt `
+` pip install -r requirements-bot.txt `
 
 ### 4. Start the Discord Bot Program
 
 Run the Discord Bot:
 
 ```
-python client.py
+python bot.py
 ```
 
 This script:
@@ -143,7 +143,7 @@ This script:
 
 ## Discord Bot
 
-1. Create a file named `.env` in the bot directory with the following contents:
+1. Create a file named `bot.env` in the bot directory with the following contents:
 
 ```
 BOT_TOKEN="your_discord_bot_token"
@@ -166,13 +166,13 @@ PORT=5000
 > [!NOTE]
 > `BOT_TOKEN`: Specify the Discord BOT's token. In the **Bot** tab. Click **"Reset Token"** (or "Copy Token"). Paste the token here<br>
 > <br>`GUILD_ID`: Specify your Minecraft server's ID
-> <br><br> `PORT`: Specify the port on which the bot should be communicating. Must be free and should be the same as the one set in the local daemon program
-> <br><br>`HOST`: Specify the local daemon's HOSTNAME, i.e. usually the local daemon's IP
+> <br><br> `PORT`: Specify the port on which the bot should be communicating. Must be free and should be the same as the one set in the local daemon program.
+> <br><br>`HOST`: Specify the local daemon's HOSTNAME, i.e. the local daemon's IP. Please put `127.0.0.1` if the local daemon is running on the same machine as this.
 
 
 ---
 ## Local Control Daemon
-1. Create a file named `.env` in the daemon directory with the following contents:
+1. Create a file named `server.env` in the daemon directory with the following contents:
 
 ```
 IS_TUNNEL=true/false
