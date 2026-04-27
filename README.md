@@ -38,34 +38,10 @@ The bot communicates with a local control daemon that launches the server and ca
 
 # 🚀 Running the Project
 
-> [!NOTE]
-> There are two parts to this program -- A local control daemon program and the Discord Bot program. Throughout the guide, we will be referring to them by the same.
-
 > [!IMPORTANT]
 > Make sure you match the PROJECT requirements [here](#-requirements)
 
-```
-Discord Bot
-     │
-     │ socket connection
-     ▼
-Local Control Daemon
-     │
-     ├── Starts Minecraft Server
-     └── (OPTIONAL) Starts playit.gg Tunnel
-```
 
-> [!IMPORTANT]
-> The control daemon **must run on the same machine as the Minecraft server**. <br>
-*Move the ` SERVER ` folder to the Minecraft Server machine*
-
->[!IMPORTANT]
-> The Discord bot can run on **any machine, including the control daemon's machine** <br>
-*Move the ` BOT  ` folder to the Discord BOT machine*
-
-<br><br>
-
-## Local Control Daemon Program
 
 ### 1. Enable RCON on the Minecraft Server
 Open your Minecraft server's ` server.properties ` file and look for/create the following lines:
@@ -84,72 +60,52 @@ rcon.port=<default/your_desired_port>
 >[!TIP]
 > You may keep the RCON port the default or change it to a suitable free port
 
-### 2. Create the .env file
-Follow the guide on Environment Variables setup [here](#local-control-daemon)
+### 2. Create the Discord Bot
 
-### 3. Install the libraries
+Follow the guide on creating the Discord Bot [here](#-creating--inviting-the-discord-bot)
+
+### 3. Create the .env file
+Follow the guide on Environment Variables setup [here](#️-environment-variables)
+
+### 4. Install the libraries
 Run the following command in your daemon directory:
-` pip install -r requirements-server.txt `
+` pip install -r requirements.txt `
 
-### 4. Start the Control Daemon (local machine)
+### 5. Start the Control Daemon (local machine)
 
 Run the server controller on the same machine as the Minecraft server:
 
 ```
-python server.py
+python daemon.py
 ```
 
-This script:
+This script CAN:
 
-* listens for bot requests
-* launches the Minecraft server
-* starts the playit tunnel
+* launch the Minecraft server
+* start the playit tunnel
+* stop the Minecraft server
+* check the Minecraft server status
 
 <br>
 
 
 <br>
-
-## Discord BOT program 
-### 1. Create the Discord Bot
-
-Follow the guide on creating the Discord Bot [here](#-creating--inviting-the-discord-bot)
-
-### 2. Create the .env file
-Follow the guide on Environment Variables setup [here](#discord-bot)
-
-### 3. Install the libraries
-Run the following command in your bot directory:
-` pip install -r requirements-bot.txt `
-
-### 4. Start the Discord Bot Program
-
-Run the Discord Bot:
-
-```
-python bot.py
-```
-
-This script:
-
-* starts the discord bot
-* accepts and process slash commands from Discord
-* communicates with the local daemon
 
 ---
 <br><br>
 
 # ⚙️ Environment Variables
 
-## Discord Bot
 
-1. Create a file named `bot.env` in the bot directory with the following contents:
+1. Create a file named `.env` in the daemon directory with the following contents:
 
 ```
 BOT_TOKEN="your_discord_bot_token"
 GUILD_ID="your_discord_server_id"
-HOST="your_local_control_daemon_ip"
-PORT=your_local_control_daemon_port
+IS_TUNNEL=true/false
+SERVER_FILE="path_to_your_mc_server_file"
+RCON_PASSW="your_rcon_password"
+RCON_PORT=your_rcon_port
 ```
 
 Example:
@@ -157,49 +113,21 @@ Example:
 ```
 BOT_TOKEN="MzA2hshAAHA65AxAYSGk"
 GUILD_ID="127835812687358712"
-HOST="127.0.0.1"
-PORT=5000
+IS_TUNNEL=true
+SERVER_FILE="paper.jar"
+RCON_PASSW="Test@123"
+RCON_PORT=25575
 ```
 
 <br>
 
 > [!NOTE]
 > `BOT_TOKEN`: Specify the Discord BOT's token. In the **Bot** tab. Click **"Reset Token"** (or "Copy Token"). Paste the token here<br>
-> <br>`GUILD_ID`: Specify your Minecraft server's ID
-> <br><br> `PORT`: Specify the port on which the bot should be communicating. Must be free and should be the same as the one set in the local daemon program.
-> <br><br>`HOST`: Specify the local daemon's HOSTNAME, i.e. the local daemon's IP. Please put `127.0.0.1` if the local daemon is running on the same machine as this.
-
-
----
-## Local Control Daemon
-1. Create a file named `server.env` in the daemon directory with the following contents:
-
-```
-IS_TUNNEL=true/false
-SERVER_FILE="<path_to_minecraft_server_jar>"
-PORT=<free_port_for_daemon>
-RCON_PASSW="<your_rcon_password>"
-RCON_PORT=<your_minecraft_rcon_port>
-```
-
-Example:
-
-```
-IS_TUNNEL=true
-SERVER_FILE="paper.jar"
-PORT=5000
-RCON_PASSW="Test@123"
-RCON_PORT=25575
-```
-<br>
-
-> [!NOTE]
-> `IS_TUNNEL`: specify true/false. Set true if using tunneling service playit.gg <br>
+> <br>`GUILD_ID`: Specify your Discord server's ID
+> <br>`IS_TUNNEL`: specify true/false. Set true if using tunneling service playit.gg <br>
 > <br>`SERVER_FILE`: specify the Minecraft Server JAR file path 
-> <br><br> `PORT`: Specify the port on which the daemon should be listening. Must be free and should be the same as the one set in the discord bot program
 > <br><br>`RCON_PASSW`: Specify the Password to the Minecraft Server's RCON console access. Must be same as the one in `server.properties`
 > <br><br> `RCON_PORT`: Specify the Minecraft server's RCON port. Must be same as the one in `server.properties`
-
 
 ---
 
@@ -207,15 +135,13 @@ RCON_PORT=25575
 
 # 📦 Requirements
 
-## Local Control Daemon
 * Python **3.10+**
 * Access to Minecraft Server `server.properties `
 * playit.gg client (ONLY IF USING TUNELLING SERVICE)
-* Libraries in  ` requirements-server.txt `
+* Permission to create new files
+* Permision to create/access environment variables
+* Libraries in  ` requirements.txt `
 
-## Discord bot
-* Python **3.10+**
-* Libraries in  ` requirements-client.txt `
 
 ---
 
